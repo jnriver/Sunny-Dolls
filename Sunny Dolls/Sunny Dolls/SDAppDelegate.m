@@ -12,7 +12,21 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+    [self.statusItem setImage:[NSImage imageNamed:@"clear"]];
 }
+
+- (void)initStatusMenu
+{
+    self.statusMenu = [[NSMenu alloc] init];
+    NSMenuItem *menuItem;
+    
+    menuItem = [NSMenuItem separatorItem];
+    [self.statusMenu addItem:menuItem];
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
+    [menuItem setTarget:NSApp];
+    [self.statusMenu addItem:menuItem];
+}
+
 
 @end
