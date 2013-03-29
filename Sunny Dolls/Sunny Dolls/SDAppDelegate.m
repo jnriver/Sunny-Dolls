@@ -12,8 +12,15 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.weatherGetter = [[SDWeatherGetter alloc] init];
+    self.voiceGenerator = [[SDVoiceGenerator alloc] init];
+    
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
-    [self.statusItem setImage:[NSImage imageNamed:@"clear"]];
+    NSImage *img = [NSImage imageNamed:@"sunny"];
+    [img setSize:NSMakeSize(16, 16)];
+    [self.statusItem setImage:img];
+    
+    [self.voiceGenerator sayTimeAndWeather:@""];
 }
 
 - (void)initStatusMenu

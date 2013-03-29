@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface SDVoiceGenerator : NSObject
 {
-    
+    SystemSoundID ampmVoice;
 }
+@property (strong, nonatomic)AVAudioPlayer *audioPlayer;
+
+- (void)sayTimeAndWeather:(NSString *)weather;
 
 
 @end

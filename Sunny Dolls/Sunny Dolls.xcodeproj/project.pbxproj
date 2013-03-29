@@ -253,6 +253,7 @@
 		7B7EB79517058A5F003C079D /* SDVoiceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */; };
 		7B7EB79717058B35003C079D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7EB79617058B35003C079D /* AudioToolbox.framework */; };
 		7BE8256C1705FD3400BF12F3 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BE8256B1705FD3400BF12F3 /* logo.icns */; };
+		7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE8256D1706060700BF12F3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -511,6 +512,7 @@
 		7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDVoiceGenerator.m; sourceTree = "<group>"; };
 		7B7EB79617058B35003C079D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7BE8256B1705FD3400BF12F3 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
+		7BE8256D1706060700BF12F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,6 +520,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */,
 				7B7EB79717058B35003C079D /* AudioToolbox.framework in Frameworks */,
 				7B2A747B17056E4D00D44843 /* Cocoa.framework in Frameworks */,
 			);
@@ -547,6 +550,7 @@
 		7B2A747917056E4D00D44843 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BE8256D1706060700BF12F3 /* AVFoundation.framework */,
 				7B7EB79617058B35003C079D /* AudioToolbox.framework */,
 				7B2A747A17056E4D00D44843 /* Cocoa.framework */,
 				7B2A747C17056E4D00D44843 /* Other Frameworks */,
