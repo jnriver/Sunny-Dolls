@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Sunny Dolls' target in the 'Sunny Dolls' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
