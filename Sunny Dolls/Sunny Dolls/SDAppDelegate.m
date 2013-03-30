@@ -12,6 +12,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self initUserDefaults];
     self.weatherGetter = [[SDWeatherGetter alloc] init];
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
     [self initStatusMenu];
@@ -23,6 +24,8 @@
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
+    
+    [self.weatherGetter getWeather];
 }
 
 - (void)initStatusMenu
@@ -30,11 +33,19 @@
     self.statusMenu = [[NSMenu alloc] init];
     NSMenuItem *menuItem;
     
-//    menuItem = [NSMenuItem separatorItem];
-//    [self.statusMenu addItem:menuItem];
+    //    menuItem = [NSMenuItem separatorItem];
+    //    [self.statusMenu addItem:menuItem];
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
+}
+
+- (void)initUserDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:@{
+                   kSDLocation:@"zhuhai"
+    }];
 }
 
 #pragma mark - status actions

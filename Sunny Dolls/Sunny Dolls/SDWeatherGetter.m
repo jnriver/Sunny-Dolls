@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 jnriver. All rights reserved.
 //
 
+#import <SBJson/SBJson.h>
 #import "SDWeatherGetter.h"
 
 @implementation SDWeatherGetter
@@ -15,7 +16,10 @@
     self = [super init];
     if (self) {
         NSString *loc = [[NSUserDefaults standardUserDefaults] stringForKey:kSDLocation];
-        weatherRequst = [NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/%@.json", kSDWeatherAPIID, loc];
+        NSString *requestStr = [NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/%@.json", kSDWeatherAPIID, loc];
+        DLog(@"requestStr:%@", requestStr);
+        NSURL *requestURL = [[NSURL alloc] initWithString:requestStr];
+        weatherRequst = [[NSURLRequest alloc] initWithURL:requestURL];
     }
     return self;
 }
@@ -35,10 +39,10 @@
     NSLog(@"willSendRequest");
     return weatherRequst;
 }
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
-{
-    
-}
+//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+//{
+//    DLog(@"willCacheResponse");
+//}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {

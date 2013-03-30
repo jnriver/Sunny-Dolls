@@ -247,9 +247,41 @@
 		7BC60D111706EDD40015532A /* SDStstusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC60D101706EDD40015532A /* SDStstusView.m */; };
 		7BC60D5917075BC90015532A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC60D5817075BC90015532A /* MainMenu.xib */; };
 		7BC60D5B17075C100015532A /* Cloud-Download.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BC60D5A17075C100015532A /* Cloud-Download.png */; };
+		7BC60D6B1707610D0015532A /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC60D64170760F00015532A /* SBJson.framework */; };
 		7BE8256C1705FD3400BF12F3 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BE8256B1705FD3400BF12F3 /* logo.icns */; };
 		7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE8256D1706060700BF12F3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7BC60D63170760F00015532A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC60D5C170760F00015532A /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC12323D1391D5CC00131607;
+			remoteInfo = SBJson;
+		};
+		7BC60D65170760F00015532A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC60D5C170760F00015532A /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC1232521391D5CC00131607;
+			remoteInfo = SBJsonTests;
+		};
+		7BC60D67170760F00015532A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC60D5C170760F00015532A /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2626913920FC7003D9994;
+			remoteInfo = "sbjson-ios";
+		};
+		7BC60D69170760F00015532A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BC60D5C170760F00015532A /* SBJson.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCC2627313920FC7003D9994;
+			remoteInfo = "sbjson-iosTests";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7B2A747717056E4D00D44843 /* Sunny Dolls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sunny Dolls.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -503,6 +535,7 @@
 		7BC60D101706EDD40015532A /* SDStstusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDStstusView.m; sourceTree = "<group>"; };
 		7BC60D5817075BC90015532A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		7BC60D5A17075C100015532A /* Cloud-Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Cloud-Download.png"; path = "Resources/Cloud-Download.png"; sourceTree = "<group>"; };
+		7BC60D5C170760F00015532A /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		7BE8256B1705FD3400BF12F3 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
 		7BE8256D1706060700BF12F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -512,6 +545,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC60D6B1707610D0015532A /* SBJson.framework in Frameworks */,
 				7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */,
 				7B7EB79717058B35003C079D /* AudioToolbox.framework in Frameworks */,
 				7B2A747B17056E4D00D44843 /* Cocoa.framework in Frameworks */,
@@ -524,6 +558,7 @@
 		7B2A746E17056E4D00D44843 = {
 			isa = PBXGroup;
 			children = (
+				7BC60D5C170760F00015532A /* SBJson.xcodeproj */,
 				7B2A748017056E4D00D44843 /* Sunny Dolls */,
 				7B2A747917056E4D00D44843 /* Frameworks */,
 				7B2A749717056E5F00D44843 /* Resources */,
@@ -846,6 +881,17 @@
 			path = Resources/voice;
 			sourceTree = "<group>";
 		};
+		7BC60D5D170760F00015532A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BC60D64170760F00015532A /* SBJson.framework */,
+				7BC60D66170760F00015532A /* SBJsonTests.octest */,
+				7BC60D68170760F00015532A /* libsbjson-ios.a */,
+				7BC60D6A170760F00015532A /* sbjson-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -886,12 +932,49 @@
 			mainGroup = 7B2A746E17056E4D00D44843;
 			productRefGroup = 7B2A747817056E4D00D44843 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7BC60D5D170760F00015532A /* Products */;
+					ProjectRef = 7BC60D5C170760F00015532A /* SBJson.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7B2A747617056E4D00D44843 /* Sunny Dolls */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7BC60D64170760F00015532A /* SBJson.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SBJson.framework;
+			remoteRef = 7BC60D63170760F00015532A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7BC60D66170760F00015532A /* SBJsonTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SBJsonTests.octest;
+			remoteRef = 7BC60D65170760F00015532A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7BC60D68170760F00015532A /* libsbjson-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libsbjson-ios.a";
+			remoteRef = 7BC60D67170760F00015532A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7BC60D6A170760F00015532A /* sbjson-iosTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "sbjson-iosTests.octest";
+			remoteRef = 7BC60D69170760F00015532A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7B2A747517056E4D00D44843 /* Resources */ = {
