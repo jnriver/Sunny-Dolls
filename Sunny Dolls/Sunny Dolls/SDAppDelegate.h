@@ -10,6 +10,7 @@
 #import "SDWeatherGetter.h"
 #import "SDVoiceGenerator.h"
 #import "SDWeather.h"
+#import "SDStstusView.h"
 
 @interface SDAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -18,6 +19,10 @@
 @property (strong, nonatomic) SDWeather *weather;
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) SDStstusView *statusView;
 @property (strong, nonatomic) NSMenu *statusMenu;
+
+- (void)say;
+- (void)popMenu;
 
 @end

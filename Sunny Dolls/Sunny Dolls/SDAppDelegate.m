@@ -14,19 +14,25 @@
 {
     self.weatherGetter = [[SDWeatherGetter alloc] init];
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
+    [self initStatusMenu];
     
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
+    self.statusView = [[SDStstusView alloc] init];
     NSImage *img = [NSImage imageNamed:@"sunny"];
     [img setSize:NSMakeSize(16, 16)];
-    [self.statusItem setImage:img];
-    [self.statusItem setTarget:self];
-    [self.statusItem setAction:@selector(say)];
+    [self.statusView setImage:img];
+    [self.statusItem setView:self.statusView];
 }
 
 - (void)say
 {
     [self.voiceGenerator sayTimeAndWeather:self.weather.condition];
+}
+
+- (void)popMenu
+{
+    [self.statusItem popUpStatusItemMenu:self.statusMenu];
 }
 
 - (void)initStatusMenu
