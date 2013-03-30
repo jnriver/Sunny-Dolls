@@ -19,8 +19,8 @@
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     self.statusView = [[SDStstusView alloc] init];
-    NSImage *img = [NSImage imageNamed:@"sunny"];
-    [img setSize:NSMakeSize(16, 16)];
+    NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
+    [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
 }
