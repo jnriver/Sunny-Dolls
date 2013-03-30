@@ -16,6 +16,7 @@
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
     
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+    
     NSImage *img = [NSImage imageNamed:@"sunny"];
     [img setSize:NSMakeSize(16, 16)];
     [self.statusItem setImage:img];

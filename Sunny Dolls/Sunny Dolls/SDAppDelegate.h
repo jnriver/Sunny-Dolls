@@ -17,7 +17,7 @@
 @property (strong, nonatomic) SDVoiceGenerator *voiceGenerator;
 @property (strong, nonatomic) SDWeather *weather;
 
-@property (strong, nonatomic) IBOutlet NSStatusItem *statusItem;
-@property (strong, nonatomic) IBOutlet NSMenu *statusMenu;
+@property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) NSMenu *statusMenu;
 
 @end

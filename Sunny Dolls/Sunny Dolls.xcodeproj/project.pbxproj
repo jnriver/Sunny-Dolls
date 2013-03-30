@@ -12,7 +12,6 @@
 		7B2A748717056E4D00D44843 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2A748617056E4D00D44843 /* main.m */; };
 		7B2A748B17056E4D00D44843 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7B2A748917056E4D00D44843 /* Credits.rtf */; };
 		7B2A748E17056E4D00D44843 /* SDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B2A748D17056E4D00D44843 /* SDAppDelegate.m */; };
-		7B2A749117056E4D00D44843 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B2A748F17056E4D00D44843 /* MainMenu.xib */; };
 		7B7EB6A3170589B0003C079D /* chanceflurries.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB5B5170589AF003C079D /* chanceflurries.gif */; };
 		7B7EB6A4170589B0003C079D /* chancerain.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB5B6170589AF003C079D /* chancerain.gif */; };
 		7B7EB6A5170589B0003C079D /* chancesleet.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB5B7170589AF003C079D /* chancesleet.gif */; };
@@ -270,7 +269,6 @@
 		7B2A748A17056E4D00D44843 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7B2A748C17056E4D00D44843 /* SDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAppDelegate.h; sourceTree = "<group>"; };
 		7B2A748D17056E4D00D44843 /* SDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAppDelegate.m; sourceTree = "<group>"; };
-		7B2A749017056E4D00D44843 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		7B7EB5B5170589AF003C079D /* chanceflurries.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chanceflurries.gif; sourceTree = "<group>"; };
 		7B7EB5B6170589AF003C079D /* chancerain.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chancerain.gif; sourceTree = "<group>"; };
 		7B7EB5B7170589AF003C079D /* chancesleet.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chancesleet.gif; sourceTree = "<group>"; };
@@ -582,7 +580,6 @@
 				7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */,
 				7BC60CEE170680790015532A /* SDWeather.h */,
 				7BC60CEF170680790015532A /* SDWeather.m */,
-				7B2A748F17056E4D00D44843 /* MainMenu.xib */,
 				7B2A748117056E4D00D44843 /* Supporting Files */,
 			);
 			path = "Sunny Dolls";
@@ -916,7 +913,6 @@
 			files = (
 				7B2A748517056E4D00D44843 /* InfoPlist.strings in Resources */,
 				7B2A748B17056E4D00D44843 /* Credits.rtf in Resources */,
-				7B2A749117056E4D00D44843 /* MainMenu.xib in Resources */,
 				7B7EB6A3170589B0003C079D /* chanceflurries.gif in Resources */,
 				7B7EB6A4170589B0003C079D /* chancerain.gif in Resources */,
 				7B7EB6A5170589B0003C079D /* chancesleet.gif in Resources */,
@@ -1189,14 +1185,6 @@
 				7B2A748A17056E4D00D44843 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		7B2A748F17056E4D00D44843 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7B2A749017056E4D00D44843 /* en */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
