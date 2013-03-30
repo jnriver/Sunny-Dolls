@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "SDWeatherGetter.h"
 #import "SDVoiceGenerator.h"
+#import "SDWeather.h"
 
 @interface SDAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (strong, nonatomic) SDWeatherGetter *weatherGetter;
 @property (strong, nonatomic) SDVoiceGenerator *voiceGenerator;
+@property (strong, nonatomic) SDWeather *weather;
 
 @property (strong, nonatomic) IBOutlet NSStatusItem *statusItem;
 @property (strong, nonatomic) IBOutlet NSMenu *statusMenu;

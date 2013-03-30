@@ -15,7 +15,7 @@
 }
 @property (strong, nonatomic)AVAudioPlayer *audioPlayer;
 
-- (void)sayTimeAndWeather:(NSString *)weather;
+- (void)sayTimeAndWeather:(NSString *)weatherCondition;
 
 
 @end

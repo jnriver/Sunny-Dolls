@@ -19,8 +19,13 @@
     NSImage *img = [NSImage imageNamed:@"sunny"];
     [img setSize:NSMakeSize(16, 16)];
     [self.statusItem setImage:img];
-    
-    [self.voiceGenerator sayTimeAndWeather:@""];
+    [self.statusItem setTarget:self];
+    [self.statusItem setAction:@selector(say)];
+}
+
+- (void)say
+{
+    [self.voiceGenerator sayTimeAndWeather:self.weather.condition];
 }
 
 - (void)initStatusMenu

@@ -252,6 +252,7 @@
 		7B7EB79217058A26003C079D /* SDWeatherGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7EB79117058A26003C079D /* SDWeatherGetter.m */; };
 		7B7EB79517058A5F003C079D /* SDVoiceGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */; };
 		7B7EB79717058B35003C079D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7EB79617058B35003C079D /* AudioToolbox.framework */; };
+		7BC60CF0170680790015532A /* SDWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC60CEF170680790015532A /* SDWeather.m */; };
 		7BE8256C1705FD3400BF12F3 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BE8256B1705FD3400BF12F3 /* logo.icns */; };
 		7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE8256D1706060700BF12F3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -511,6 +512,8 @@
 		7B7EB79317058A5F003C079D /* SDVoiceGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDVoiceGenerator.h; sourceTree = "<group>"; };
 		7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDVoiceGenerator.m; sourceTree = "<group>"; };
 		7B7EB79617058B35003C079D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7BC60CEE170680790015532A /* SDWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWeather.h; sourceTree = "<group>"; };
+		7BC60CEF170680790015532A /* SDWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWeather.m; sourceTree = "<group>"; };
 		7BE8256B1705FD3400BF12F3 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
 		7BE8256D1706060700BF12F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -577,6 +580,8 @@
 				7B7EB79117058A26003C079D /* SDWeatherGetter.m */,
 				7B7EB79317058A5F003C079D /* SDVoiceGenerator.h */,
 				7B7EB79417058A5F003C079D /* SDVoiceGenerator.m */,
+				7BC60CEE170680790015532A /* SDWeather.h */,
+				7BC60CEF170680790015532A /* SDWeather.m */,
 				7B2A748F17056E4D00D44843 /* MainMenu.xib */,
 				7B2A748117056E4D00D44843 /* Supporting Files */,
 			);
@@ -1163,6 +1168,7 @@
 				7B2A748E17056E4D00D44843 /* SDAppDelegate.m in Sources */,
 				7B7EB79217058A26003C079D /* SDWeatherGetter.m in Sources */,
 				7B7EB79517058A5F003C079D /* SDVoiceGenerator.m in Sources */,
+				7BC60CF0170680790015532A /* SDWeather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
