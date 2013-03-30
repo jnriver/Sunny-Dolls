@@ -11,8 +11,11 @@
 
 @interface SDVoiceGenerator : NSObject
 {
-    SystemSoundID ampmVoice;
+    NSMutableArray *voiceArray;
+    NSMutableArray *dataArray;
 }
+
+@property (getter = isSaying, nonatomic) BOOL saying;
 
 - (void)sayTimeAndWeather:(NSString *)weatherCondition;
 
