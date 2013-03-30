@@ -14,7 +14,6 @@
 {
     self = [super init];
     if (self) {
-        self.audioPlayer = [[AVAudioPlayer alloc] init];
     }
     return self;
 }
@@ -61,11 +60,11 @@
         return 5;
     }
     // 晚上
-    if (hour >= 18 && hour < 11) {
+    if (hour >= 18 && hour < 23) {
         return 6;
     }
     // 深夜
-    if (hour >= 11) {
+    if (hour >= 23) {
         return 7;
     }
     

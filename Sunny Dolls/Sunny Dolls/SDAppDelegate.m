@@ -25,6 +25,21 @@
     [self.statusItem setView:self.statusView];
 }
 
+
+- (void)initStatusMenu
+{
+    self.statusMenu = [[NSMenu alloc] init];
+    NSMenuItem *menuItem;
+    
+//    menuItem = [NSMenuItem separatorItem];
+//    [self.statusMenu addItem:menuItem];
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
+    [menuItem setTarget:NSApp];
+    [self.statusMenu addItem:menuItem];
+}
+
+#pragma mark - status actions
+
 - (void)say
 {
     [self.voiceGenerator sayTimeAndWeather:self.weather.condition];
@@ -34,18 +49,5 @@
 {
     [self.statusItem popUpStatusItemMenu:self.statusMenu];
 }
-
-- (void)initStatusMenu
-{
-    self.statusMenu = [[NSMenu alloc] init];
-    NSMenuItem *menuItem;
-    
-    menuItem = [NSMenuItem separatorItem];
-    [self.statusMenu addItem:menuItem];
-    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
-    [menuItem setTarget:NSApp];
-    [self.statusMenu addItem:menuItem];
-}
-
 
 @end

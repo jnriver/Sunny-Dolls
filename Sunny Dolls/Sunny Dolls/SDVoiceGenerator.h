@@ -13,7 +13,6 @@
 {
     SystemSoundID ampmVoice;
 }
-@property (strong, nonatomic)AVAudioPlayer *audioPlayer;
 
 - (void)sayTimeAndWeather:(NSString *)weatherCondition;
 
