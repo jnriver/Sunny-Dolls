@@ -43,7 +43,14 @@
     
     // get hour voice
     SystemSoundID hourVoice;
-    NSString *hourFileName = [NSString stringWithFormat:@"hour_%@_cn", [NSString stringWithFormat:@"%02ld", dateComponents.hour > 12 ? dateComponents.hour - 12 : dateComponents.hour]];
+    NSInteger hour = dateComponents.hour;
+    if (hour > 12) {
+        hour -= 12;
+    }
+    if (hour == 0) {
+        hour = 12;
+    }
+    NSString *hourFileName = [NSString stringWithFormat:@"hour_%@_cn", [NSString stringWithFormat:@"%02ld", hour]];
     NSURL *hourURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:hourFileName ofType:@"caf"]];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)hourURL,&hourVoice);
     [voiceArray addObject:[NSNumber numberWithUnsignedInt:hourVoice]];
@@ -61,6 +68,13 @@
     NSURL *minURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:minFileName ofType:@"caf"]];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef)minURL,&minVoice);
     [voiceArray addObject:[NSNumber numberWithUnsignedInt:minVoice]];
+    
+    // get day voice
+    SystemSoundID dayVoice;
+    NSString *dayFileName = [NSString stringWithFormat:@"week_%ld_cn", dateComponents.weekday - 1];
+    NSURL *dayURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:dayFileName ofType:@"caf"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)dayURL,&dayVoice);
+    [voiceArray addObject:[NSNumber numberWithUnsignedInt:dayVoice]];
     
     // get weather voice
     SystemSoundID weatherVoice;

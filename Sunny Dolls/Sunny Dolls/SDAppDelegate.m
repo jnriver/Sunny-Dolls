@@ -25,7 +25,6 @@
     [self.statusItem setView:self.statusView];
 }
 
-
 - (void)initStatusMenu
 {
     self.statusMenu = [[NSMenu alloc] init];

@@ -210,14 +210,6 @@
 		7B7EB766170589B0003C079D /* min_58_cn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB679170589B0003C079D /* min_58_cn.caf */; };
 		7B7EB767170589B0003C079D /* min_59.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67A170589B0003C079D /* min_59.caf */; };
 		7B7EB768170589B0003C079D /* min_59_cn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67B170589B0003C079D /* min_59_cn.caf */; };
-		7B7EB769170589B0003C079D /* music_cloudy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67C170589B0003C079D /* music_cloudy.wav */; };
-		7B7EB76A170589B0003C079D /* music_foggy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67D170589B0003C079D /* music_foggy.wav */; };
-		7B7EB76B170589B0003C079D /* music_partlycloudy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67E170589B0003C079D /* music_partlycloudy.wav */; };
-		7B7EB76C170589B0003C079D /* music_rainy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB67F170589B0003C079D /* music_rainy.wav */; };
-		7B7EB76D170589B0003C079D /* music_snowy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB680170589B0003C079D /* music_snowy.wav */; };
-		7B7EB76E170589B0003C079D /* music_stormy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB681170589B0003C079D /* music_stormy.wav */; };
-		7B7EB76F170589B0003C079D /* music_sunny.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB682170589B0003C079D /* music_sunny.wav */; };
-		7B7EB770170589B0003C079D /* music_unknown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB683170589B0003C079D /* music_unknown.wav */; };
 		7B7EB771170589B0003C079D /* oclock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB684170589B0003C079D /* oclock.caf */; };
 		7B7EB772170589B0003C079D /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB685170589B0003C079D /* silence.caf */; };
 		7B7EB773170589B0003C079D /* weather_cloudy.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7B7EB686170589B0003C079D /* weather_cloudy.caf */; };
@@ -468,14 +460,6 @@
 		7B7EB679170589B0003C079D /* min_58_cn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = min_58_cn.caf; sourceTree = "<group>"; };
 		7B7EB67A170589B0003C079D /* min_59.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = min_59.caf; sourceTree = "<group>"; };
 		7B7EB67B170589B0003C079D /* min_59_cn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = min_59_cn.caf; sourceTree = "<group>"; };
-		7B7EB67C170589B0003C079D /* music_cloudy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_cloudy.wav; sourceTree = "<group>"; };
-		7B7EB67D170589B0003C079D /* music_foggy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_foggy.wav; sourceTree = "<group>"; };
-		7B7EB67E170589B0003C079D /* music_partlycloudy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_partlycloudy.wav; sourceTree = "<group>"; };
-		7B7EB67F170589B0003C079D /* music_rainy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_rainy.wav; sourceTree = "<group>"; };
-		7B7EB680170589B0003C079D /* music_snowy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_snowy.wav; sourceTree = "<group>"; };
-		7B7EB681170589B0003C079D /* music_stormy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_stormy.wav; sourceTree = "<group>"; };
-		7B7EB682170589B0003C079D /* music_sunny.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_sunny.wav; sourceTree = "<group>"; };
-		7B7EB683170589B0003C079D /* music_unknown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music_unknown.wav; sourceTree = "<group>"; };
 		7B7EB684170589B0003C079D /* oclock.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = oclock.caf; sourceTree = "<group>"; };
 		7B7EB685170589B0003C079D /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		7B7EB686170589B0003C079D /* weather_cloudy.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = weather_cloudy.caf; sourceTree = "<group>"; };
@@ -821,14 +805,6 @@
 				7B7EB679170589B0003C079D /* min_58_cn.caf */,
 				7B7EB67A170589B0003C079D /* min_59.caf */,
 				7B7EB67B170589B0003C079D /* min_59_cn.caf */,
-				7B7EB67C170589B0003C079D /* music_cloudy.wav */,
-				7B7EB67D170589B0003C079D /* music_foggy.wav */,
-				7B7EB67E170589B0003C079D /* music_partlycloudy.wav */,
-				7B7EB67F170589B0003C079D /* music_rainy.wav */,
-				7B7EB680170589B0003C079D /* music_snowy.wav */,
-				7B7EB681170589B0003C079D /* music_stormy.wav */,
-				7B7EB682170589B0003C079D /* music_sunny.wav */,
-				7B7EB683170589B0003C079D /* music_unknown.wav */,
 				7B7EB684170589B0003C079D /* oclock.caf */,
 				7B7EB685170589B0003C079D /* silence.caf */,
 				7B7EB686170589B0003C079D /* weather_cloudy.caf */,
@@ -1116,14 +1092,6 @@
 				7B7EB766170589B0003C079D /* min_58_cn.caf in Resources */,
 				7B7EB767170589B0003C079D /* min_59.caf in Resources */,
 				7B7EB768170589B0003C079D /* min_59_cn.caf in Resources */,
-				7B7EB769170589B0003C079D /* music_cloudy.wav in Resources */,
-				7B7EB76A170589B0003C079D /* music_foggy.wav in Resources */,
-				7B7EB76B170589B0003C079D /* music_partlycloudy.wav in Resources */,
-				7B7EB76C170589B0003C079D /* music_rainy.wav in Resources */,
-				7B7EB76D170589B0003C079D /* music_snowy.wav in Resources */,
-				7B7EB76E170589B0003C079D /* music_stormy.wav in Resources */,
-				7B7EB76F170589B0003C079D /* music_sunny.wav in Resources */,
-				7B7EB770170589B0003C079D /* music_unknown.wav in Resources */,
 				7B7EB771170589B0003C079D /* oclock.caf in Resources */,
 				7B7EB772170589B0003C079D /* silence.caf in Resources */,
 				7B7EB773170589B0003C079D /* weather_cloudy.caf in Resources */,

@@ -13,3 +13,5 @@
 #else
 #       define DLog(...)
 #endif
+
+__unused static NSString *kSDWeatherAPIID = @"41b92b768c724fc1";
