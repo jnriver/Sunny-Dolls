@@ -86,7 +86,6 @@
         [voiceArray addObject:[NSNumber numberWithUnsignedInt:weatherVoice]];
     }
     
-    
     [self playVoiceArray];
 }
 
