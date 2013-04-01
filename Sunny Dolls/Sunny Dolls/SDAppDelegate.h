@@ -16,7 +16,8 @@
 
 @property (strong, nonatomic) SDWeatherGetter *weatherGetter;
 @property (strong, nonatomic) SDVoiceGenerator *voiceGenerator;
-@property (strong, nonatomic) SDWeather *weather;
+
+@property (strong, nonatomic) NSMutableArray *weatherBox;
 
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) SDStstusView *statusView;

@@ -13,6 +13,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self initUserDefaults];
+    self.weatherBox = [[NSMutableArray alloc] init];
     self.weatherGetter = [[SDWeatherGetter alloc] init];
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
     [self initStatusMenu];
@@ -24,8 +25,6 @@
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
-    
-    [self.weatherGetter getWeather];
 }
 
 - (void)initStatusMenu
@@ -44,7 +43,9 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:@{
-                   kSDLocation:@"zhuhai"
+                   kSDLocation:@"zhuhai",
+                   kSDLastDate:@"19000101",
+           kSDYesterdayWeather:@{}
     }];
 }
 
@@ -52,7 +53,12 @@
 
 - (void)say
 {
-    [self.voiceGenerator sayTimeAndWeather:self.weather.condition];
+    NSString *weatherCondition = @"";
+    if ([self.weatherBox count] > 0) {
+        SDWeather *todayWeather = [self.weatherBox objectAtIndex:0];
+        weatherCondition = todayWeather.condition;
+    }
+    [self.voiceGenerator sayTimeAndWeather:weatherCondition];
 }
 
 - (void)popMenu

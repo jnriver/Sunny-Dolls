@@ -17,51 +17,44 @@
     if (self) {
         NSString *loc = [[NSUserDefaults standardUserDefaults] stringForKey:kSDLocation];
         NSString *requestStr = [NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/%@.json", kSDWeatherAPIID, loc];
-        DLog(@"requestStr:%@", requestStr);
         NSURL *requestURL = [[NSURL alloc] initWithString:requestStr];
-        weatherRequst = [[NSURLRequest alloc] initWithURL:requestURL];
+        self.weatherRequst = [[NSURLRequest alloc] initWithURL:requestURL];
     }
     return self;
 }
 
-- (NSString *)getWeather
+- (void)getWeather
 {
-    finished = NO;
-    __unused NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:weatherRequst delegate:self];
-    while(!finished) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-    return nil;
+    __unused NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:self.weatherRequst delegate:self];
 }
 
 - (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
 {
-    NSLog(@"willSendRequest");
-    return weatherRequst;
+    DLog(@"willSendRequest");
+    return self.weatherRequst;
 }
-//- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
-//{
-//    DLog(@"willCacheResponse");
-//}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    NSLog(@"didReceiveResponse");
-    [responseData setLength:0];
+    DLog(@"didReceiveResponse");
+    self.responseData = [[NSMutableData alloc] init];
 }
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"didReceiveData");
-    [responseData appendData:data];
+    DLog(@"didReceiveData");
+    [self.responseData appendData:data];
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"didFailWithError");
-    NSLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+    DLog(@"didFailWithError");
+    DLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    DLog(@"connectionDidFinishLoading");
+    NSString *dataStr = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    
+    DLog(@"connectionDidFinishLoading:%@",dataStr);
 }
+
 @end

@@ -9,12 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface SDWeatherGetter : NSObject <NSURLConnectionDelegate>
-{
-    NSURLRequest *weatherRequst;
-    NSMutableData *responseData;
-    BOOL finished;
-}
 
-- (NSString *)getWeather;
+@property (strong, nonatomic) NSURLRequest *weatherRequst;;
+@property (strong, nonatomic) NSMutableData *responseData;
+
+- (void)getWeather;
 
 @end
