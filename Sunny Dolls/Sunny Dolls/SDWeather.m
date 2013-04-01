@@ -32,6 +32,7 @@
         self.lowCelsius = [[weatherDict valueForKeyPath:@"low.celsius"] integerValue];
         
         self.humidity = [[weatherDict valueForKey:@"avehumidity"] integerValue];
+        self.conditionVoice = [self getVoiceByCondition];
     }
     return self;
 }
@@ -64,7 +65,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"\n    dateDescription:%@\n    dayDescription:%@\n    conditionDescription:%@\n    conditionDescription:%@\n    highCelsius:%ld\n    lowCelsius:%ld\n    humidity:%ld",
+    return [NSString stringWithFormat:@"\n    dateDescription:%@\n    dayDescription:%@\n    condition:%@\n    conditionDescription:%@\n    highCelsius:%ld\n    lowCelsius:%ld\n    humidity:%ld",
             self.dateDescription,
             self.dayDescription,
             self.condition,

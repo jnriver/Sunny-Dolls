@@ -17,6 +17,7 @@
 {
     self = [super init];
     if (self) {
+        self.loading = NO;
         self.weatherBox = [[NSMutableArray alloc] init];
         NSString *loc = [[NSUserDefaults standardUserDefaults] stringForKey:kSDLocation];
         NSString *requestStr = [NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/%@.json", kSDWeatherAPIID, loc];
@@ -67,11 +68,14 @@
 
 - (void)loadWeathersFromDictionary:(NSDictionary *)weatherInfoDict
 {
+    DLog(@"weatherInfoDict:%@",weatherInfoDict);
     [self.weatherBox removeAllObjects];
     NSArray *weatherDictArray = [weatherInfoDict valueForKeyPath:@"forecast.simpleforecast.forecastday"];
     for (NSDictionary *weatherDict in weatherDictArray) {
         SDWeather *weather = [[SDWeather alloc] initWithDictionary:weatherDict];
         [self.weatherBox addObject:weather];
+        
+        DLog(@"weatherDict:%@",weatherDict);
         DLog(@"weather:%@", weather);
     }
     

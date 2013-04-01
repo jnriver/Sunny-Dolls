@@ -29,6 +29,8 @@ NSDateFormatter *dateFormatter;
     [self initStatusMenu];
     
     self.checkTimer = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(check) userInfo:nil repeats:YES];
+    
+    [self.weatherLoader loadWeathers];
     [[NSRunLoop mainRunLoop] addTimer:self.checkTimer forMode:NSRunLoopCommonModes];
 }
 
@@ -99,6 +101,11 @@ NSDateFormatter *dateFormatter;
         [self.statusView setImage:img];
         [self.weatherLoader loadWeathers];
     }
+    if (!self.lastWeather && [self.weatherBox count] > 0) {
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
+        [userDefaults synchronize];
+    }
 }
 
 - (void)say
@@ -117,11 +124,18 @@ NSDateFormatter *dateFormatter;
 
 - (void)receiveWeatherBox
 {
-    self.lastWeather = [self.weatherBox count] > 0 ? [self.weatherBox objectAtIndex:0] : nil;
-    // update user defaults
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([self.weatherBox count] > 0) {
+        self.lastWeather = [self.weatherBox objectAtIndex:0];
+    } else {
+        self.lastWeather = [[SDWeather alloc] initWithDictionary:[userDefaults valueForKey:kSDLastWeather]];
+    }
+    // update user defaults
     [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastDate];
-    [userDefaults setValue:[(SDWeather *)[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
+    if (self.lastWeather) {
+        [userDefaults setValue:self.lastWeather.weatherDictionary forKey:kSDLastWeather];
+    }
     [userDefaults synchronize];
     
     // update my weatherBox
@@ -135,14 +149,19 @@ NSDateFormatter *dateFormatter;
     // refresh menu
     [self.statusMenu removeAllItems];
     NSMenuItem *menuItem;
+    
+    menuItem = [self getWeatherMenuItemByWeather:[self.weatherBox objectAtIndex:0]];
+    [self.statusMenu addItem:menuItem];
+    menuItem = [NSMenuItem separatorItem];
+    [self.statusMenu addItem:menuItem];
+    [self.weatherBox removeObjectAtIndex:0];
+    
     if (self.lastWeather) {
         menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
         [self.statusMenu addItem:menuItem];
-        menuItem = [NSMenuItem separatorItem];
-        [self.statusMenu addItem:menuItem];
     }
     for (SDWeather *weather in self.weatherBox) {
-        menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
+        menuItem = [self getWeatherMenuItemByWeather:weather];
         [self.statusMenu addItem:menuItem];
     }
     menuItem = [NSMenuItem separatorItem];
