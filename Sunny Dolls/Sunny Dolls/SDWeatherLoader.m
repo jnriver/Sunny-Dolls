@@ -53,6 +53,9 @@
 {
     DLog(@"didFailWithError");
     self.loading = NO;
+    
+    SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
+    [delegate recaverStatusItem];
     DLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 

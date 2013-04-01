@@ -31,5 +31,6 @@
 - (void)popMenu;
 
 - (void)receiveWeatherBox;
+- (void)recaverStatusItem;
 
 @end

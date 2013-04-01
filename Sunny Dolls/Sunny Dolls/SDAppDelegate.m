@@ -135,6 +135,12 @@ NSDateFormatter *dateFormatter;
     [self.statusItem popUpStatusItemMenu:self.statusMenu];
 }
 
+- (void)recaverStatusItem
+{
+    NSImage *statusImage = [NSImage imageNamed:[(SDWeather *)[self.weatherBox objectAtIndex:0] condition]];
+    [self.statusView setImage:statusImage];
+}
+
 - (void)receiveWeatherBox
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
