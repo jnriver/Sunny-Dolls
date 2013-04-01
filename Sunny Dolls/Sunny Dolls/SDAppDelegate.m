@@ -9,16 +9,31 @@
 #import "SDAppDelegate.h"
 #import "SDWeather.h"
 
+NSDateFormatter *dateFormatter;
+
 @implementation SDAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self initUserDefaults];
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
     self.weatherBox = [[NSMutableArray alloc] init];
-    self.weatherGetter = [[SDWeatherGetter alloc] init];
+    self.weatherLoader = [[SDWeatherLoader alloc] init];
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.lastWeather = [[SDWeather alloc] initWithDictionary:[defaults valueForKey:kSDLastWeather]];
+    
+    [self initStatusItem];
     [self initStatusMenu];
     
+    self.checkTimer = [NSTimer timerWithTimeInterval:10 target:self selector:@selector(check) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.checkTimer forMode:NSRunLoopCommonModes];
+}
+
+- (void)initStatusItem
+{    
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     self.statusView = [[SDStstusView alloc] init];
@@ -26,8 +41,6 @@
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
-    
-    [self.weatherGetter loadWeathers];
 }
 
 - (void)initStatusMenu
@@ -35,8 +48,13 @@
     self.statusMenu = [[NSMenu alloc] init];
     NSMenuItem *menuItem;
     
-    //    menuItem = [NSMenuItem separatorItem];
-    //    [self.statusMenu addItem:menuItem];
+    if (self.lastWeather) {
+        menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
+        [self.statusMenu addItem:menuItem];
+        menuItem = [NSMenuItem separatorItem];
+        [self.statusMenu addItem:menuItem];
+    }
+    
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
@@ -52,7 +70,36 @@
     }];
 }
 
+#pragma mark - private method
+
+- (NSMenuItem *)getWeatherMenuItemByWeather:(SDWeather *)weather
+{
+    NSString *menuItemString = [self getWeatherMenuStringByWeather:weather];
+    NSImage *menuItemImage = [NSImage imageNamed:weather.condition];
+    NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:menuItemString action:nil keyEquivalent:@""];
+    [menuItem setImage:menuItemImage];
+    [menuItem setEnabled:NO];
+    return menuItem;
+}
+
+- (NSString *)getWeatherMenuStringByWeather:(SDWeather *)weather
+{
+    return [NSString stringWithFormat:@"%@%@ %@ %ld˚C~%ld˚C %ld%%", weather.dateDescription, weather.dayDescription, weather.conditionDescription, weather.lowCelsius, weather.highCelsius, weather.humidity];
+}
+
 #pragma mark - status actions
+
+- (void)check
+{
+    NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastDate];
+    if (![todayString isEqualToString:lastString] && !self.weatherLoader.isLoading) {
+        NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
+        [img setSize:NSMakeSize(32, 32)];
+        [self.statusView setImage:img];
+        [self.weatherLoader loadWeathers];
+    }
+}
 
 - (void)say
 {
@@ -70,8 +117,39 @@
 
 - (void)receiveWeatherBox
 {
+    self.lastWeather = [self.weatherBox count] > 0 ? [self.weatherBox objectAtIndex:0] : nil;
+    // update user defaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastDate];
+    [userDefaults setValue:[(SDWeather *)[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
+    [userDefaults synchronize];
+    
+    // update my weatherBox
     [self.weatherBox removeAllObjects];
-    [self.weatherBox addObjectsFromArray:self.weatherGetter.weatherBox];
+    [self.weatherBox addObjectsFromArray:self.weatherLoader.weatherBox];
+    
+    // refresh status item image
+    NSImage *statusImage = [NSImage imageNamed:[(SDWeather *)[self.weatherBox objectAtIndex:0] condition]];
+    [self.statusView setImage:statusImage];
+    
+    // refresh menu
+    [self.statusMenu removeAllItems];
+    NSMenuItem *menuItem;
+    if (self.lastWeather) {
+        menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
+        [self.statusMenu addItem:menuItem];
+        menuItem = [NSMenuItem separatorItem];
+        [self.statusMenu addItem:menuItem];
+    }
+    for (SDWeather *weather in self.weatherBox) {
+        menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
+        [self.statusMenu addItem:menuItem];
+    }
+    menuItem = [NSMenuItem separatorItem];
+    [self.statusMenu addItem:menuItem];
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
+    [menuItem setTarget:NSApp];
+    [self.statusMenu addItem:menuItem];
 }
 
 @end

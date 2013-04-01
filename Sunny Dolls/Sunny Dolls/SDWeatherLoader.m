@@ -1,5 +1,5 @@
 //
-//  SDWeatherGetter.m
+//  SDWeatherLoader.m
 //  Sunny Dolls
 //
 //  Created by nangua on 13-3-29.
@@ -7,11 +7,11 @@
 //
 
 #import <SBJson/SBJson.h>
-#import "SDWeatherGetter.h"
+#import "SDWeatherLoader.h"
 #import "SDAppDelegate.h"
 #import "SDWeather.h"
 
-@implementation SDWeatherGetter
+@implementation SDWeatherLoader
 
 - (id)init
 {
@@ -28,6 +28,7 @@
 
 - (void)loadWeathers
 {
+    self.loading = YES;
     __unused NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:self.weatherRequst delegate:self];
 }
 
@@ -50,12 +51,14 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     DLog(@"didFailWithError");
+    self.loading = NO;
     DLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     DLog(@"connectionDidFinishLoading");
+    self.loading = NO;
     NSString *dataStr = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
     NSDictionary *weatherInfoDict = [jsonParser objectWithString:dataStr];

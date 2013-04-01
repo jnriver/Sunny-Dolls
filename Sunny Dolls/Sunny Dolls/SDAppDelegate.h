@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SDWeatherGetter.h"
+#import "SDWeatherLoader.h"
 #import "SDVoiceGenerator.h"
 #import "SDWeather.h"
 #import "SDStstusView.h"
 
 @interface SDAppDelegate : NSObject <NSApplicationDelegate>
 
-@property (strong, nonatomic) SDWeatherGetter *weatherGetter;
+@property (strong, nonatomic) SDWeatherLoader *weatherLoader;
 @property (strong, nonatomic) SDVoiceGenerator *voiceGenerator;
 
 @property (strong, nonatomic) NSMutableArray *weatherBox;
@@ -22,6 +22,10 @@
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) SDStstusView *statusView;
 @property (strong, nonatomic) NSMenu *statusMenu;
+
+@property (strong, nonatomic) SDWeather *lastWeather;
+
+@property (strong, nonatomic) NSTimer *checkTimer;
 
 - (void)say;
 - (void)popMenu;

@@ -14,13 +14,16 @@
 {
     self = [super init];
     if (self) {
+        if ([weatherDict isEqualToDictionary:@{}]) {
+            return nil;
+        }
         self.weatherDictionary = weatherDict;
         
         NSInteger year = [[weatherDict valueForKeyPath:@"date.year"] integerValue];
         NSInteger month = [[weatherDict valueForKeyPath:@"date.month"] integerValue];
         NSInteger day = [[weatherDict valueForKeyPath:@"date.day"] integerValue];
-        self.dateDescription = [NSString stringWithFormat:@"%ld-%ld-%ld", year, month, day];
-        self.dayDescription = [weatherDict valueForKeyPath:@"date.weekday"];
+        self.dateDescription = [NSString stringWithFormat:@"%ld/%ld/%ld", year, month, day];
+        self.dayDescription = [weatherDict valueForKeyPath:@"date.weekday_short"];
         
         self.condition = [weatherDict valueForKey:@"icon"];
         self.conditionDescription = [weatherDict valueForKey:@"conditions"];
