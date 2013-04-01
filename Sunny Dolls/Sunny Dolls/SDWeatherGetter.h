@@ -10,9 +10,10 @@
 
 @interface SDWeatherGetter : NSObject <NSURLConnectionDelegate>
 
-@property (strong, nonatomic) NSURLRequest *weatherRequst;;
+@property (strong, nonatomic) NSMutableArray *weatherBox;
+@property (strong, nonatomic) NSURLRequest *weatherRequst;
 @property (strong, nonatomic) NSMutableData *responseData;
 
-- (void)getWeather;
+- (void)loadWeathers;
 
 @end

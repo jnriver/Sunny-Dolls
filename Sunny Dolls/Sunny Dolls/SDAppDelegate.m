@@ -25,6 +25,8 @@
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
+    
+    [self.weatherGetter loadWeathers];
 }
 
 - (void)initStatusMenu
@@ -45,7 +47,7 @@
     [defaults registerDefaults:@{
                    kSDLocation:@"zhuhai",
                    kSDLastDate:@"19000101",
-           kSDYesterdayWeather:@{}
+                kSDLastWeather:@{}
     }];
 }
 

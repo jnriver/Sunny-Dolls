@@ -8,6 +8,7 @@
 
 #import <SBJson/SBJson.h>
 #import "SDWeatherGetter.h"
+#import "SDWeather.h"
 
 @implementation SDWeatherGetter
 
@@ -15,6 +16,7 @@
 {
     self = [super init];
     if (self) {
+        self.weatherBox = [[NSMutableArray alloc] init];
         NSString *loc = [[NSUserDefaults standardUserDefaults] stringForKey:kSDLocation];
         NSString *requestStr = [NSString stringWithFormat:@"http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/%@.json", kSDWeatherAPIID, loc];
         NSURL *requestURL = [[NSURL alloc] initWithString:requestStr];
@@ -23,7 +25,7 @@
     return self;
 }
 
-- (void)getWeather
+- (void)loadWeathers
 {
     __unused NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:self.weatherRequst delegate:self];
 }
@@ -52,9 +54,22 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    DLog(@"connectionDidFinishLoading");
     NSString *dataStr = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
-    
-    DLog(@"connectionDidFinishLoading:%@",dataStr);
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+    NSDictionary *weatherInfoDict = [jsonParser objectWithString:dataStr];
+    [self loadWeathersFromDictionary:weatherInfoDict];
+}
+
+- (void)loadWeathersFromDictionary:(NSDictionary *)weatherInfoDict
+{
+    [self.weatherBox removeAllObjects];
+    NSArray *weatherDictArray = [weatherInfoDict valueForKeyPath:@"forecast.simpleforecast.forecastday"];
+    for (NSDictionary *weatherDict in weatherDictArray) {
+        SDWeather *weather = [[SDWeather alloc] initWithDictionary:weatherDict];
+        [self.weatherBox addObject:weather];
+        DLog(@"weather:%@", weather);
+    }
 }
 
 @end
