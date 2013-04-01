@@ -14,6 +14,8 @@
 {
     self = [super init];
     if (self) {
+        self.weatherDictionary = weatherDict;
+        
         NSInteger year = [[weatherDict valueForKeyPath:@"date.year"] integerValue];
         NSInteger month = [[weatherDict valueForKeyPath:@"date.month"] integerValue];
         NSInteger day = [[weatherDict valueForKeyPath:@"date.day"] integerValue];
@@ -29,6 +31,32 @@
         self.humidity = [[weatherDict valueForKey:@"avehumidity"] integerValue];
     }
     return self;
+}
+
+- (NSString *)getVoiceByCondition
+{
+    if ([self.condition hasSuffix:@"flurries"]) {
+        return @"snowy";
+    }
+    if ([self.condition hasSuffix:@"rain"] || [self.condition hasSuffix:@"sleet"]) {
+        return @"rainy";
+    }
+    if ([self.condition hasSuffix:@"snow"]) {
+        return @"snowy";
+    }
+    if ([self.condition hasSuffix:@"tstorms"]) {
+        return @"stormy";
+    }
+    if ([self.condition hasSuffix:@"clear"] || [self.condition hasSuffix:@"sunny"]) {
+        return @"sunny";
+    }
+    if ([self.condition hasSuffix:@"cloudy"] || [self.condition hasSuffix:@"hazy"]) {
+        return @"cloudy";
+    }
+    if ([self.condition hasSuffix:@"fog"]) {
+        return @"foggy";
+    }
+    return @"";
 }
 
 - (NSString *)description

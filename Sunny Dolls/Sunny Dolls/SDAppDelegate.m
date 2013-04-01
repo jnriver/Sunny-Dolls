@@ -56,13 +56,11 @@
 
 - (void)say
 {
-    NSString *weatherCondition = @"";
+    SDWeather *todayWeather = nil;
     if ([self.weatherBox count] > 0) {
-        SDWeather *todayWeather = [self.weatherBox objectAtIndex:0];
-        weatherCondition = todayWeather.condition;
+        todayWeather = [self.weatherBox objectAtIndex:0];
     }
-    weatherCondition = @"cloudy";
-    [self.voiceGenerator sayTimeAndWeather:weatherCondition];
+    [self.voiceGenerator sayTimeAndWeather:todayWeather];
 }
 
 - (void)popMenu

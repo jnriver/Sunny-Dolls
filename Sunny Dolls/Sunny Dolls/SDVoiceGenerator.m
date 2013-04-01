@@ -21,7 +21,7 @@
     return self;
 }
 
-- (void)sayTimeAndWeather:(NSString *)weatherCondition
+- (void)sayTimeAndWeather:(SDWeather *)weather;
 {
     if (self.isSaying) {
         return;
@@ -78,7 +78,7 @@
     
     // get weather voice
     SystemSoundID weatherVoice;
-    NSString *weatherFileName = [NSString stringWithFormat:@"weather_%@_cn", weatherCondition];
+    NSString *weatherFileName = [NSString stringWithFormat:@"weather_%@_cn", weather ? weather.conditionVoice : @""];
     NSString *weatherPath = [[NSBundle mainBundle] pathForResource:weatherFileName ofType:@"caf"];
     if (weatherPath) {
         NSURL *weatherURL = [NSURL fileURLWithPath:weatherPath];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SDWeather.h"
 
 @interface SDVoiceGenerator : NSObject
 {
@@ -17,7 +18,7 @@
 
 @property (getter = isSaying, nonatomic) BOOL saying;
 
-- (void)sayTimeAndWeather:(NSString *)weatherCondition;
+- (void)sayTimeAndWeather:(SDWeather *)weather;
 
 
 @end
