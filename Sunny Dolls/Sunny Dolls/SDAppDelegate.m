@@ -7,6 +7,7 @@
 //
 
 #import "SDAppDelegate.h"
+#import "SDWeather.h"
 
 @implementation SDAppDelegate
 
@@ -60,12 +61,19 @@
         SDWeather *todayWeather = [self.weatherBox objectAtIndex:0];
         weatherCondition = todayWeather.condition;
     }
+    weatherCondition = @"cloudy";
     [self.voiceGenerator sayTimeAndWeather:weatherCondition];
 }
 
 - (void)popMenu
 {
     [self.statusItem popUpStatusItemMenu:self.statusMenu];
+}
+
+- (void)receiveWeatherBox
+{
+    [self.weatherBox removeAllObjects];
+    [self.weatherBox addObjectsFromArray:self.weatherGetter.weatherBox];
 }
 
 @end

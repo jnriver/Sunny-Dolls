@@ -26,4 +26,6 @@
 - (void)say;
 - (void)popMenu;
 
+- (void)receiveWeatherBox;
+
 @end

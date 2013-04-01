@@ -8,6 +8,7 @@
 
 #import <SBJson/SBJson.h>
 #import "SDWeatherGetter.h"
+#import "SDAppDelegate.h"
 #import "SDWeather.h"
 
 @implementation SDWeatherGetter
@@ -70,6 +71,9 @@
         [self.weatherBox addObject:weather];
         DLog(@"weather:%@", weather);
     }
+    
+    SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
+    [delegate receiveWeatherBox];
 }
 
 @end
