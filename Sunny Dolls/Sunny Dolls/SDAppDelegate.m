@@ -57,6 +57,11 @@ NSDateFormatter *dateFormatter;
         [self.statusMenu addItem:menuItem];
     }
     
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(loadWeather) keyEquivalent:@""];
+    [menuItem setTarget:self];
+    [self.statusMenu addItem:menuItem];
+    menuItem = [NSMenuItem separatorItem];
+    [self.statusMenu addItem:menuItem];
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
@@ -96,16 +101,24 @@ NSDateFormatter *dateFormatter;
     NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
     NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastDate];
     if (![todayString isEqualToString:lastString] && !self.weatherLoader.isLoading) {
-        NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
-        [img setSize:NSMakeSize(32, 32)];
-        [self.statusView setImage:img];
-        [self.weatherLoader loadWeathers];
+        [self loadWeather];
     }
     if (!self.lastWeather && [self.weatherBox count] > 0) {
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
         [userDefaults synchronize];
     }
+}
+
+- (void)loadWeather
+{
+    if ([self.weatherLoader isLoading]) {
+        return;
+    }
+    NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
+    [img setSize:NSMakeSize(32, 32)];
+    [self.statusView setImage:img];
+    [self.weatherLoader loadWeathers];
 }
 
 - (void)say
@@ -126,11 +139,17 @@ NSDateFormatter *dateFormatter;
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if ([self.weatherBox count] > 0) {
-        self.lastWeather = [self.weatherBox objectAtIndex:0];
-    } else {
-        self.lastWeather = [[SDWeather alloc] initWithDictionary:[userDefaults valueForKey:kSDLastWeather]];
+    // update last weather
+    NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastDate];
+    if (!self.lastWeather || (![todayString isEqualToString:lastString] && self.lastWeather)) {
+        if ([self.weatherBox count] > 0) {
+            self.lastWeather = [self.weatherBox objectAtIndex:0];
+        } else {
+            self.lastWeather = [[SDWeather alloc] initWithDictionary:[userDefaults valueForKey:kSDLastWeather]];
+        }
     }
+    
     // update user defaults
     [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastDate];
     if (self.lastWeather) {
@@ -154,16 +173,22 @@ NSDateFormatter *dateFormatter;
     [self.statusMenu addItem:menuItem];
     menuItem = [NSMenuItem separatorItem];
     [self.statusMenu addItem:menuItem];
-    [self.weatherBox removeObjectAtIndex:0];
     
     if (self.lastWeather) {
         menuItem = [self getWeatherMenuItemByWeather:self.lastWeather];
         [self.statusMenu addItem:menuItem];
     }
-    for (SDWeather *weather in self.weatherBox) {
+    for (NSInteger i = 1; i <= [self.weatherBox count] - 1; i ++) {
+        SDWeather *weather = [self.weatherBox objectAtIndex:i];
         menuItem = [self getWeatherMenuItemByWeather:weather];
         [self.statusMenu addItem:menuItem];
     }
+    menuItem = [NSMenuItem separatorItem];
+    [self.statusMenu addItem:menuItem];
+    
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(loadWeather) keyEquivalent:@""];
+    [menuItem setTarget:self];
+    [self.statusMenu addItem:menuItem];
     menuItem = [NSMenuItem separatorItem];
     [self.statusMenu addItem:menuItem];
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
