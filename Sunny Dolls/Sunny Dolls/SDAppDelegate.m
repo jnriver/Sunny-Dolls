@@ -57,12 +57,13 @@ NSDateFormatter *dateFormatter;
         [self.statusMenu addItem:menuItem];
     }
     
-    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(loadWeather) keyEquivalent:@""];
-    [menuItem setTarget:self];
-    [self.statusMenu addItem:menuItem];
-    menuItem = [NSMenuItem separatorItem];
-    [self.statusMenu addItem:menuItem];
-    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
+//    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(check) keyEquivalent:@""];
+//    [menuItem setTarget:self];
+//    [self.statusMenu addItem:menuItem];    
+//    menuItem = [NSMenuItem separatorItem];
+//    [self.statusMenu addItem:menuItem];
+    
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
 }
@@ -72,7 +73,7 @@ NSDateFormatter *dateFormatter;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:@{
                    kSDLocation:@"zhuhai",
-                   kSDLastDate:@"19000101",
+             kSDLastUpdateDate:@"19000101",
                 kSDLastWeather:@{}
     }];
 }
@@ -99,7 +100,7 @@ NSDateFormatter *dateFormatter;
 - (void)check
 {
     NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastDate];
+    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastUpdateDate];
     if (![todayString isEqualToString:lastString] && !self.weatherLoader.isLoading) {
         [self loadWeather];
     }
@@ -143,25 +144,18 @@ NSDateFormatter *dateFormatter;
 
 - (void)receiveWeatherBox
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    // update last weather
-    NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastDate];
-    if (!self.lastWeather || (![todayString isEqualToString:lastString] && self.lastWeather)) {
-        if ([self.weatherBox count] > 0) {
-            self.lastWeather = [self.weatherBox objectAtIndex:0];
-        } else {
-            self.lastWeather = [[SDWeather alloc] initWithDictionary:[userDefaults valueForKey:kSDLastWeather]];
-        }
+    if ([self.weatherBox count] == 0) {
+        [self.weatherBox addObjectsFromArray:self.weatherLoader.weatherBox];
     }
     
     // update user defaults
-    [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastDate];
-    if (self.lastWeather) {
-        [userDefaults setValue:self.lastWeather.weatherDictionary forKey:kSDLastWeather];
-    }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
+    [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastUpdateDate];
     [userDefaults synchronize];
+    
+    // update self.lastWeather
+    self.lastWeather = [self.weatherBox objectAtIndex:0];
     
     // update my weatherBox
     [self.weatherBox removeAllObjects];
@@ -192,12 +186,13 @@ NSDateFormatter *dateFormatter;
     menuItem = [NSMenuItem separatorItem];
     [self.statusMenu addItem:menuItem];
     
-    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(loadWeather) keyEquivalent:@""];
-    [menuItem setTarget:self];
-    [self.statusMenu addItem:menuItem];
-    menuItem = [NSMenuItem separatorItem];
-    [self.statusMenu addItem:menuItem];
-    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit Sunny Dolls" action:@selector(terminate:) keyEquivalent:@""];
+//    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(check) keyEquivalent:@""];
+//    [menuItem setTarget:self];
+//    [self.statusMenu addItem:menuItem];
+//    menuItem = [NSMenuItem separatorItem];
+//    [self.statusMenu addItem:menuItem];
+    
+    menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
 }

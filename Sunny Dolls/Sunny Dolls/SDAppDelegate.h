@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMenu *statusMenu;
 
 @property (strong, nonatomic) SDWeather *lastWeather;
+@property (strong, nonatomic) SDWeather *todayWeather;
 
 @property (strong, nonatomic) NSTimer *checkTimer;
 

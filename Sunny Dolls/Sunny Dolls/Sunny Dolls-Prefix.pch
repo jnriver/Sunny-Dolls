@@ -17,5 +17,5 @@
 __unused static NSString *kSDWeatherAPIID = @"41b92b768c724fc1";
 
 __unused static NSString *kSDLocation = @"location";
-__unused static NSString *kSDLastDate = @"last update date";
+__unused static NSString *kSDLastUpdateDate = @"last update date";
 __unused static NSString *kSDLastWeather = @"last weather";
