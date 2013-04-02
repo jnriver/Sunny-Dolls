@@ -24,8 +24,11 @@
 - (void)sayTimeAndWeather:(SDWeather *)weather;
 {
     if (self.isSaying) {
+        self.canceled = YES;
         return;
     }
+    self.canceled = NO;
+    
     self.saying = YES;
     [voiceArray removeAllObjects];
     
@@ -103,8 +106,14 @@
     [dataArray addObject:self];
     [dataArray addObject:@"playVoiceArray"];
     
-    AudioServicesAddSystemSoundCompletion(sound, nil, nil, playSoundFinished, (__bridge void *)(dataArray));
-    AudioServicesPlaySystemSound(sound);
+    if (!self.canceled) {
+        AudioServicesAddSystemSoundCompletion(sound, nil, nil, playSoundFinished, (__bridge void *)(dataArray));
+        AudioServicesPlaySystemSound(sound);
+    } else {
+        self.saying = NO;
+        AudioServicesRemoveSystemSoundCompletion(sound);
+        AudioServicesDisposeSystemSoundID(sound);
+    }
 }
 
 void playSoundFinished(SystemSoundID sound, void *data)
@@ -115,6 +124,7 @@ void playSoundFinished(SystemSoundID sound, void *data)
     
     id obj = [dataArray objectAtIndex:0];
     SEL method = NSSelectorFromString([dataArray objectAtIndex:1]);
+
     [obj performSelector:method];
 }
 

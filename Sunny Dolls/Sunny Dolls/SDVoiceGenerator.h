@@ -17,6 +17,7 @@
 }
 
 @property (getter = isSaying, nonatomic) BOOL saying;
+@property (getter = isCanceled, nonatomic) BOOL canceled;
 
 - (void)sayTimeAndWeather:(SDWeather *)weather;
 
