@@ -39,7 +39,7 @@ NSDateFormatter *dateFormatter;
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
     self.statusView = [[SDStstusView alloc] init];
-    NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
+    NSImage *img = [NSImage imageNamed:@"Cloud-Refresh"];
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.statusItem setView:self.statusView];
@@ -116,7 +116,7 @@ NSDateFormatter *dateFormatter;
     if ([self.weatherLoader isLoading]) {
         return;
     }
-    NSImage *img = [NSImage imageNamed:@"Cloud-Download"];
+    NSImage *img = [NSImage imageNamed:@"Cloud-Refresh"];
     [img setSize:NSMakeSize(32, 32)];
     [self.statusView setImage:img];
     [self.weatherLoader loadWeathers];
@@ -138,8 +138,11 @@ NSDateFormatter *dateFormatter;
 
 - (void)recaverStatusItem
 {
-    NSImage *statusImage = [NSImage imageNamed:[(SDWeather *)[self.weatherBox objectAtIndex:0] condition]];
-    [self.statusView setImage:statusImage];
+    NSImage *statusImage;
+    if ([self.weatherBox count] > 0) {
+        statusImage = [NSImage imageNamed:[(SDWeather *)[self.weatherBox objectAtIndex:0] condition]];
+        [self.statusView setImage:statusImage];
+    }
 }
 
 - (void)receiveWeatherBox
