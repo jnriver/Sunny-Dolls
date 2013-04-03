@@ -10,6 +10,7 @@
 #import "SDWeather.h"
 
 NSDateFormatter *dateFormatter;
+NSDateFormatter *hourFormatter;
 
 @implementation SDAppDelegate
 
@@ -18,6 +19,8 @@ NSDateFormatter *dateFormatter;
     [self initUserDefaults];
     dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyyMMdd"];
+    hourFormatter = [[NSDateFormatter alloc] init];
+    [hourFormatter setDateFormat:@"HH"];
     self.weatherBox = [[NSMutableArray alloc] init];
     self.weatherLoader = [[SDWeatherLoader alloc] init];
     self.voiceGenerator = [[SDVoiceGenerator alloc] init];
@@ -57,12 +60,6 @@ NSDateFormatter *dateFormatter;
         [self.statusMenu addItem:menuItem];
     }
     
-//    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(check) keyEquivalent:@""];
-//    [menuItem setTarget:self];
-//    [self.statusMenu addItem:menuItem];    
-//    menuItem = [NSMenuItem separatorItem];
-//    [self.statusMenu addItem:menuItem];
-    
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
     [self.statusMenu addItem:menuItem];
@@ -74,6 +71,7 @@ NSDateFormatter *dateFormatter;
     [defaults registerDefaults:@{
                    kSDLocation:@"zhuhai",
              kSDLastUpdateDate:@"19000101",
+         kSDLastUpdateTimeHour:@"00",
                 kSDLastWeather:@{}
     }];
 }
@@ -99,15 +97,14 @@ NSDateFormatter *dateFormatter;
 
 - (void)check
 {
-    NSString *todayString = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *lastString = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastUpdateDate];
-    if (![todayString isEqualToString:lastString] && !self.weatherLoader.isLoading) {
+    NSString *nowDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *lastDate = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastUpdateDate];
+    
+    NSString *nowHour = [hourFormatter stringFromDate:[NSDate date]];
+    NSString *lastHour = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastUpdateTimeHour];
+    
+    if ((![nowDate isEqualToString:lastDate] || ![nowHour isEqualToString:lastHour])&& !self.weatherLoader.isLoading) {
         [self loadWeather];
-    }
-    if (!self.lastWeather && [self.weatherBox count] > 0) {
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
-        [userDefaults synchronize];
     }
 }
 
@@ -151,14 +148,24 @@ NSDateFormatter *dateFormatter;
         [self.weatherBox addObjectsFromArray:self.weatherLoader.weatherBox];
     }
     
-    // update user defaults
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
-    [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastUpdateDate];
-    [userDefaults synchronize];
-    
-    // update self.lastWeather
-    self.lastWeather = [self.weatherBox objectAtIndex:0];
+    NSString *nowDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *lastDate = [[NSUserDefaults standardUserDefaults] valueForKey:kSDLastUpdateDate];
+    // same day, don't update lastWeather
+    if (![nowDate isEqualToString:lastDate]) {
+        // update UserDefaults
+        [userDefaults setValue:[[self.weatherBox objectAtIndex:0] weatherDictionary] forKey:kSDLastWeather];
+        [userDefaults setValue:[dateFormatter stringFromDate:[NSDate date]] forKey:kSDLastUpdateDate];
+        [userDefaults synchronize];
+        
+        // update self.lastWeather
+        self.lastWeather = [self.weatherBox objectAtIndex:0];
+    } else {
+        // update UserDefaults
+        NSString *nowHour = [hourFormatter stringFromDate:[NSDate date]];
+        [userDefaults setValue:nowHour forKey:kSDLastUpdateTimeHour];
+        [userDefaults synchronize];
+    }
     
     // update my weatherBox
     [self.weatherBox removeAllObjects];
@@ -188,12 +195,6 @@ NSDateFormatter *dateFormatter;
     }
     menuItem = [NSMenuItem separatorItem];
     [self.statusMenu addItem:menuItem];
-    
-//    menuItem = [[NSMenuItem alloc] initWithTitle:@"Sync" action:@selector(check) keyEquivalent:@""];
-//    [menuItem setTarget:self];
-//    [self.statusMenu addItem:menuItem];
-//    menuItem = [NSMenuItem separatorItem];
-//    [self.statusMenu addItem:menuItem];
     
     menuItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
     [menuItem setTarget:NSApp];
