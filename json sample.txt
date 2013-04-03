@@ -1,0 +1,468 @@
+http://api.wunderground.com/api/d90ac25ff4afbab2/forecast/lang:CN/q/CN/zhuhai.json
+
+one day's weather:
+
+{
+    avehumidity = 97;
+    avewind =     {
+        degrees = 115;
+        dir = "\U4e1c\U5357\U504f\U4e1c";
+        kph = 18;
+        mph = 11;
+    };
+    conditions = "\U53ef\U80fd\U6709\U96e8";
+    date =     {
+        ampm = PM;
+        day = 1;
+        epoch = 1364828400;
+        hour = 23;
+        isdst = 0;
+        min = 00;
+        month = 4;
+        monthname = "\U56db\U6708";
+        pretty = "11:00 PM CST on April 01, 2013";
+        sec = 0;
+        "tz_long" = "Asia/Macau";
+        "tz_short" = CST;
+        weekday = "\U661f\U671f\U4e00";
+        "weekday_short" = "\U5468\U4e00";
+        yday = 90;
+        year = 2013;
+    };
+    high =     {
+        celsius = 21;
+        fahrenheit = 70;
+    };
+    icon = mostlycloudy;
+    "icon_url" = "http://icons-ak.wxug.com/i/c/k/mostlycloudy.gif";
+    low =     {
+        celsius = 19;
+        fahrenheit = 66;
+    };
+    maxhumidity = 100;
+    maxwind =     {
+        degrees = 94;
+        dir = "\U4e1c";
+        kph = 29;
+        mph = 18;
+    };
+    minhumidity = 86;
+    period = 1;
+    pop = 20;
+    "qpf_allday" =     {
+        in = "0.02";
+        mm = "0.5";
+    };
+    "qpf_day" =     {
+        in = 0;
+        mm = 0;
+    };
+    "qpf_night" =     {
+        in = 0;
+        mm = 0;
+    };
+    skyicon = mostlycloudy;
+    "snow_allday" =     {
+        cm = 0;
+        in = 0;
+    };
+    "snow_day" =     {
+        cm = 0;
+        in = 0;
+    };
+    "snow_night" =     {
+        cm = 0;
+        in = 0;
+    };
+}
+
+
+
+
+
+all json:
+
+{
+    forecast =     {
+        simpleforecast =         {
+            forecastday =             (
+                                {
+                    avehumidity = 98;
+                    avewind =                     {
+                        degrees = 115;
+                        dir = "\U4e1c\U5357\U504f\U4e1c";
+                        kph = 19;
+                        mph = 12;
+                    };
+                    conditions = "\U53ef\U80fd\U6709\U96e8";
+                    date =                     {
+                        ampm = PM;
+                        day = 1;
+                        epoch = 1364828400;
+                        hour = 23;
+                        isdst = 0;
+                        min = 00;
+                        month = 4;
+                        monthname = "\U56db\U6708";
+                        pretty = "11:00 PM CST on April 01, 2013";
+                        sec = 0;
+                        "tz_long" = "Asia/Macau";
+                        "tz_short" = CST;
+                        weekday = "\U661f\U671f\U4e00";
+                        "weekday_short" = "\U5468\U4e00";
+                        yday = 90;
+                        year = 2013;
+                    };
+                    high =                     {
+                        celsius = 21;
+                        fahrenheit = 70;
+                    };
+                    icon = chancerain;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/chancerain.gif";
+                    low =                     {
+                        celsius = 19;
+                        fahrenheit = 66;
+                    };
+                    maxhumidity = 100;
+                    maxwind =                     {
+                        degrees = 94;
+                        dir = "\U4e1c";
+                        kph = 29;
+                        mph = 18;
+                    };
+                    minhumidity = 86;
+                    period = 1;
+                    pop = 40;
+                    "qpf_allday" =                     {
+                        in = "0.11";
+                        mm = "2.8";
+                    };
+                    "qpf_day" =                     {
+                        in = 0;
+                        mm = 0;
+                    };
+                    "qpf_night" =                     {
+                        in = "0.24";
+                        mm = "6.1";
+                    };
+                    skyicon = mostlycloudy;
+                    "snow_allday" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_day" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_night" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                },
+                                {
+                    avehumidity = 99;
+                    avewind =                     {
+                        degrees = 147;
+                        dir = "\U4e1c\U5357\U504f\U5357";
+                        kph = 13;
+                        mph = 8;
+                    };
+                    conditions = "\U96f7\U66b4";
+                    date =                     {
+                        ampm = PM;
+                        day = 2;
+                        epoch = 1364914800;
+                        hour = 23;
+                        isdst = 0;
+                        min = 00;
+                        month = 4;
+                        monthname = "\U56db\U6708";
+                        pretty = "11:00 PM CST on April 02, 2013";
+                        sec = 0;
+                        "tz_long" = "Asia/Macau";
+                        "tz_short" = CST;
+                        weekday = "\U661f\U671f\U4e8c";
+                        "weekday_short" = "\U5468\U4e8c";
+                        yday = 91;
+                        year = 2013;
+                    };
+                    high =                     {
+                        celsius = 22;
+                        fahrenheit = 72;
+                    };
+                    icon = tstorms;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/tstorms.gif";
+                    low =                     {
+                        celsius = 19;
+                        fahrenheit = 66;
+                    };
+                    maxhumidity = 100;
+                    maxwind =                     {
+                        degrees = 158;
+                        dir = "\U4e1c\U5357\U504f\U5357";
+                        kph = 14;
+                        mph = 9;
+                    };
+                    minhumidity = 90;
+                    period = 2;
+                    pop = 90;
+                    "qpf_allday" =                     {
+                        in = "0.35";
+                        mm = "8.9";
+                    };
+                    "qpf_day" =                     {
+                        in = "0.17";
+                        mm = "4.3";
+                    };
+                    "qpf_night" =                     {
+                        in = "0.06";
+                        mm = "1.5";
+                    };
+                    skyicon = partlycloudy;
+                    "snow_allday" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_day" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_night" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                },
+                                {
+                    avehumidity = 99;
+                    avewind =                     {
+                        degrees = 116;
+                        dir = "\U4e1c\U5357\U504f\U4e1c";
+                        kph = 29;
+                        mph = 18;
+                    };
+                    conditions = "\U53ef\U80fd\U6709\U96f7\U66b4";
+                    date =                     {
+                        ampm = PM;
+                        day = 3;
+                        epoch = 1365001200;
+                        hour = 23;
+                        isdst = 0;
+                        min = 00;
+                        month = 4;
+                        monthname = "\U56db\U6708";
+                        pretty = "11:00 PM CST on April 03, 2013";
+                        sec = 0;
+                        "tz_long" = "Asia/Macau";
+                        "tz_short" = CST;
+                        weekday = "\U661f\U671f\U4e09";
+                        "weekday_short" = "\U5468\U4e09";
+                        yday = 92;
+                        year = 2013;
+                    };
+                    high =                     {
+                        celsius = 24;
+                        fahrenheit = 75;
+                    };
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    low =                     {
+                        celsius = 20;
+                        fahrenheit = 68;
+                    };
+                    maxhumidity = 100;
+                    maxwind =                     {
+                        degrees = 104;
+                        dir = "\U4e1c\U5357\U504f\U4e1c";
+                        kph = 30;
+                        mph = 19;
+                    };
+                    minhumidity = 89;
+                    period = 3;
+                    pop = 20;
+                    "qpf_allday" =                     {
+                        in = "0.05";
+                        mm = "1.3";
+                    };
+                    "qpf_day" =                     {
+                        in = "0.01";
+                        mm = "0.3";
+                    };
+                    "qpf_night" =                     {
+                        in = "0.03";
+                        mm = "0.8";
+                    };
+                    skyicon = partlycloudy;
+                    "snow_allday" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_day" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_night" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                },
+                                {
+                    avehumidity = 99;
+                    avewind =                     {
+                        degrees = 161;
+                        dir = "\U4e1c\U5357\U504f\U5357";
+                        kph = 19;
+                        mph = 12;
+                    };
+                    conditions = "\U96fe";
+                    date =                     {
+                        ampm = PM;
+                        day = 4;
+                        epoch = 1365087600;
+                        hour = 23;
+                        isdst = 0;
+                        min = 00;
+                        month = 4;
+                        monthname = "\U56db\U6708";
+                        pretty = "11:00 PM CST on April 04, 2013";
+                        sec = 0;
+                        "tz_long" = "Asia/Macau";
+                        "tz_short" = CST;
+                        weekday = "\U661f\U671f\U56db";
+                        "weekday_short" = "\U5468\U56db";
+                        yday = 93;
+                        year = 2013;
+                    };
+                    high =                     {
+                        celsius = 25;
+                        fahrenheit = 77;
+                    };
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    low =                     {
+                        celsius = 21;
+                        fahrenheit = 70;
+                    };
+                    maxhumidity = 100;
+                    maxwind =                     {
+                        degrees = 121;
+                        dir = "\U4e1c\U5357\U504f\U4e1c";
+                        kph = 21;
+                        mph = 13;
+                    };
+                    minhumidity = 93;
+                    period = 4;
+                    pop = 0;
+                    "qpf_allday" =                     {
+                        in = "0.06";
+                        mm = "1.5";
+                    };
+                    "qpf_day" =                     {
+                        in = "0.01";
+                        mm = "0.3";
+                    };
+                    "qpf_night" =                     {
+                        in = "0.05";
+                        mm = "1.3";
+                    };
+                    skyicon = partlycloudy;
+                    "snow_allday" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_day" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                    "snow_night" =                     {
+                        cm = 0;
+                        in = 0;
+                    };
+                }
+            );
+        };
+        "txt_forecast" =         {
+            date = "8:00 PM CST";
+            forecastday =             (
+                                {
+                    fcttext = "\U53ef\U80fd\U6709\U96e8. \U6700\U9ad8: 70F. \U98ce\U901f: 10-20 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c. \U53ef\U80fd\U6709\U96e8 40%.";
+                    "fcttext_metric" = "\U53ef\U80fd\U6709\U96e8. \U6700\U9ad8: 21C. \U98ce\U901f: 20-25 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c. \U53ef\U80fd\U6709\U96e8 40%.";
+                    icon = chancerain;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/chancerain.gif";
+                    period = 0;
+                    pop = 40;
+                    title = "\U661f\U671f\U4e00";
+                },
+                                {
+                    fcttext = "\U53ef\U80fd\U6709\U96e8. \U6700\U4f4e: 66F. \U98ce\U901f: 5-10 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c. \U53ef\U80fd\U6709\U96e8 80%.";
+                    "fcttext_metric" = "\U53ef\U80fd\U6709\U96e8. \U6700\U4f4e: 19C. \U98ce\U901f: 10-15 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c. \U53ef\U80fd\U6709\U96e8 80%.";
+                    icon = chancetstorms;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/chancetstorms.gif";
+                    period = 1;
+                    pop = 80;
+                    title = "\U661f\U671f\U4e00\U591c\U95f4";
+                },
+                                {
+                    fcttext = "\U96f7\U66b4. \U6700\U9ad8: 72F. \U98ce\U901f: 5-10 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357. \U53ef\U80fd\U6709\U96e8 90%.";
+                    "fcttext_metric" = "\U96f7\U66b4. \U6700\U9ad8: 22C. \U98ce\U901f: 10-15 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357. \U53ef\U80fd\U6709\U96e8 90%.";
+                    icon = tstorms;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/tstorms.gif";
+                    period = 2;
+                    pop = 90;
+                    title = "\U661f\U671f\U4e8c";
+                },
+                                {
+                    fcttext = "\U96f7\U66b4. \U6700\U4f4e: 66F. \U98ce\U901f: 5-20 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c. \U53ef\U80fd\U6709\U96e8 40%.";
+                    "fcttext_metric" = "\U96f7\U66b4. \U6700\U4f4e: 19C. \U98ce\U901f: 10-30 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c. \U53ef\U80fd\U6709\U96e8 40%.";
+                    icon = chancetstorms;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/chancetstorms.gif";
+                    period = 3;
+                    pop = 40;
+                    title = "\U661f\U671f\U4e8c\U591c\U95f4";
+                },
+                                {
+                    fcttext = "\U6674\U95f4\U591a\U4e91. \U6700\U9ad8: 75F. \U98ce\U901f: 15-20 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c.";
+                    "fcttext_metric" = "\U6674\U95f4\U591a\U4e91. \U6700\U9ad8: 24C. \U98ce\U901f: 30-35 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c.";
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    period = 4;
+                    pop = 20;
+                    title = "\U661f\U671f\U4e09";
+                },
+                                {
+                    fcttext = "\U6674\U95f4\U591a\U4e91. \U6700\U4f4e: 68F. \U98ce\U901f: 10-20 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c.";
+                    "fcttext_metric" = "\U6674\U95f4\U591a\U4e91. \U6700\U4f4e: 20C. \U98ce\U901f: 20-30 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U4e1c.";
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    period = 5;
+                    pop = 0;
+                    title = "\U661f\U671f\U4e09\U591c\U95f4";
+                },
+                                {
+                    fcttext = "\U6674\U95f4\U591a\U4e91. \U6700\U9ad8: 77F. \U98ce\U901f: 10-15 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U5357.";
+                    "fcttext_metric" = "\U6674\U95f4\U591a\U4e91. \U6700\U9ad8: 25C. \U98ce\U901f: 15-25 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U5357.";
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    period = 6;
+                    pop = 0;
+                    title = "\U661f\U671f\U56db";
+                },
+                                {
+                    fcttext = "\U6674\U95f4\U591a\U4e91. \U6700\U4f4e: 70F. \U98ce\U901f: 10-15 \U82f1\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U5357.";
+                    "fcttext_metric" = "\U6674\U95f4\U591a\U4e91. \U6700\U4f4e: 21C. \U98ce\U901f: 15-25 \U516c\U91cc/\U5c0f\U65f6. \U98ce\U5411: \U4e1c\U5357\U504f\U5357.";
+                    icon = partlycloudy;
+                    "icon_url" = "http://icons-ak.wxug.com/i/c/k/partlycloudy.gif";
+                    period = 7;
+                    pop = 0;
+                    title = "\U661f\U671f\U56db\U591c\U95f4";
+                }
+            );
+        };
+    };
+    response =     {
+        features =         {
+            forecast = 1;
+        };
+        termsofService = "http://www.wunderground.com/weather/api/d/terms.html";
+        version = "0.1";
+    };
+}
