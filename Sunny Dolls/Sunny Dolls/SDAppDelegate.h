@@ -31,6 +31,8 @@
 - (void)say;
 - (void)popMenu;
 
+- (void)finishSay;
+
 - (void)receiveWeatherBox;
 - (void)recaverStatusItem;
 

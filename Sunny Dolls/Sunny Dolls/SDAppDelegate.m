@@ -122,10 +122,25 @@ NSDateFormatter *hourFormatter;
 - (void)say
 {
     SDWeather *todayWeather = nil;
-    if ([self.weatherBox count] > 0) {
-        todayWeather = [self.weatherBox objectAtIndex:0];
+    if ([self.weatherBox count] == 0) {
+        return;
     }
+    
+    [self.statusView setImage:[NSImage imageNamed:@"Say"]];
+    todayWeather = [self.weatherBox objectAtIndex:0];
     [self.voiceGenerator sayTimeAndWeather:todayWeather];
+}
+
+- (void)finishSay
+{
+    if ([self.weatherBox count] != 0) {
+        NSImage *statusImage = [NSImage imageNamed:[(SDWeather *)[self.weatherBox objectAtIndex:0] condition]];
+        [self.statusView setImage:statusImage];
+    } else {
+        NSImage *img = [NSImage imageNamed:@"Cloud-Refresh"];
+        [img setSize:NSMakeSize(32, 32)];
+        [self.statusView setImage:img];
+    }
 }
 
 - (void)popMenu

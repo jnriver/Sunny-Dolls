@@ -7,6 +7,7 @@
 //
 
 #import "SDVoiceGenerator.h"
+#import "SDAppDelegate.h"
 
 @implementation SDVoiceGenerator
 
@@ -95,11 +96,14 @@
 - (void)playVoiceArray
 {
     if ([voiceArray count] <= 0) {
+        SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
+        [delegate finishSay];
         self.saying = NO;
         return;
     }
     
     SystemSoundID sound = [[voiceArray objectAtIndex:0] unsignedIntValue];
+    DLog(@"sound:%d",sound);
     [voiceArray removeObjectAtIndex:0];
     
     [dataArray removeAllObjects];
