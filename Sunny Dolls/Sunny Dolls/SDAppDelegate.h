@@ -34,6 +34,6 @@
 - (void)finishSay;
 
 - (void)receiveWeatherBox;
-- (void)recaverStatusItem;
+- (void)receiveWeatherError;
 
 @end

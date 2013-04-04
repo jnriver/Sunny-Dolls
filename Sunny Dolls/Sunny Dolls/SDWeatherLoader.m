@@ -55,7 +55,7 @@
     self.loading = NO;
     
     SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
-    [delegate recaverStatusItem];
+    [delegate receiveWeatherError];
     DLog(@"%@", [NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
@@ -64,6 +64,7 @@
     DLog(@"connectionDidFinishLoading");
     self.loading = NO;
     NSString *dataStr = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
+    
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
     NSDictionary *weatherInfoDict = [jsonParser objectWithString:dataStr];
     [self loadWeathersFromDictionary:weatherInfoDict];

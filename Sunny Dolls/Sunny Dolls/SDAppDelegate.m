@@ -148,7 +148,7 @@ NSDateFormatter *hourFormatter;
     [self.statusItem popUpStatusItemMenu:self.statusMenu];
 }
 
-- (void)recaverStatusItem
+- (void)receiveWeatherError
 {
     NSImage *statusImage;
     if ([self.weatherBox count] > 0) {
@@ -195,6 +195,7 @@ NSDateFormatter *hourFormatter;
     NSMenuItem *menuItem;
     
     menuItem = [self getWeatherMenuItemByWeather:[self.weatherBox objectAtIndex:0]];
+    [self.statusView setToolTip:menuItem.title];
     [self.statusMenu addItem:menuItem];
     menuItem = [NSMenuItem separatorItem];
     [self.statusMenu addItem:menuItem];
