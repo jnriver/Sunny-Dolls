@@ -95,8 +95,8 @@
 
 - (void)playVoiceArray
 {
+    SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
     if ([voiceArray count] <= 0) {
-        SDAppDelegate *delegate = [NSApplication sharedApplication].delegate;
         [delegate finishSay];
         self.saying = NO;
         return;
@@ -114,6 +114,7 @@
         AudioServicesAddSystemSoundCompletion(sound, nil, nil, playSoundFinished, (__bridge void *)(dataArray));
         AudioServicesPlaySystemSound(sound);
     } else {
+        [delegate finishSay];
         self.saying = NO;
         AudioServicesRemoveSystemSoundCompletion(sound);
         AudioServicesDisposeSystemSoundID(sound);
