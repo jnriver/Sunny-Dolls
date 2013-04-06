@@ -10,6 +10,3 @@ Sunny-Dolls
 ![image](http://github.com/jnriver/Sunny-Dolls/raw/master/1.png)
 
 默认地区设为珠海了。。如果想更改，打开终端输入`defaults write jnriver.Sunny-Dolls location {location}`，其中`{location}`为你想设置的城市的全拼，例如“defaults write jnriver.Sunny-Dolls zhuhai”
-
-如果不确定是否能查看到自己所在城市，可以通过URL确认查询结果：http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/{location}.json，
-例如 http://api.wunderground.com/api/%@/forecast/lang:CN/q/CN/zhuhai.json
