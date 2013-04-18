@@ -251,7 +251,6 @@
 		7BC60D5917075BC90015532A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC60D5817075BC90015532A /* MainMenu.xib */; };
 		7BC60D6B1707610D0015532A /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC60D64170760F00015532A /* SBJson.framework */; };
 		7BE8256C1705FD3400BF12F3 /* logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7BE8256B1705FD3400BF12F3 /* logo.icns */; };
-		7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE8256D1706060700BF12F3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -560,7 +559,6 @@
 		7BC60D5817075BC90015532A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		7BC60D5C170760F00015532A /* SBJson.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SBJson.xcodeproj; path = "../json-framework/SBJson.xcodeproj"; sourceTree = "<group>"; };
 		7BE8256B1705FD3400BF12F3 /* logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = logo.icns; sourceTree = "<group>"; };
-		7BE8256D1706060700BF12F3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,7 +566,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BE8256E1706060700BF12F3 /* AVFoundation.framework in Frameworks */,
 				7B7EB79717058B35003C079D /* AudioToolbox.framework in Frameworks */,
 				7B2A747B17056E4D00D44843 /* Cocoa.framework in Frameworks */,
 				7BC60D6B1707610D0015532A /* SBJson.framework in Frameworks */,
@@ -600,7 +597,6 @@
 		7B2A747917056E4D00D44843 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7BE8256D1706060700BF12F3 /* AVFoundation.framework */,
 				7B7EB79617058B35003C079D /* AudioToolbox.framework */,
 				7B2A747A17056E4D00D44843 /* Cocoa.framework */,
 				7B2A747C17056E4D00D44843 /* Other Frameworks */,
